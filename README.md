@@ -6,4 +6,4 @@
 
 ### TECH UTILIZADAS:
 
-##### <img src="https://e7.pngegg.com/pngimages/251/335/png-clipart-website-development-html-cascading-style-sheets-javascript-css3-html-logo-web-design-text.png"/>
+##### <img src="./assets/img/logos.png"/>
