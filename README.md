@@ -6,4 +6,4 @@
 
 ### TECH UTILIZADAS:
 
-##### <img src="https://w7.pngwing.com/pngs/390/229/png-transparent-logo-html5-brand-design-text-logo-number.png"/>
+##### <img src="https://icon2.cleanpng.com/20180426/zue/kisspng-web-development-html-responsive-web-design-cascadi-5ae19e6b1412f6.0023511515247355950822.jpg"/>
