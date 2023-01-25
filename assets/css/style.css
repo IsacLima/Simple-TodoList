@@ -4,6 +4,8 @@
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
     margin: 0;
     font-family: 'Adobe Clean';
     color: #69665C ;
@@ -11,6 +13,8 @@ body {
 }
 
 .container{
+    width: calc(100% - 30px);
+    height: 100%;
     margin: 0 15px;
 }
 
@@ -33,5 +37,73 @@ nav {
 }
 
 .floatbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.floatbox__header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cancel {
+    font-size: 14px;
+}
+
+.add {
+    width: 120px;
+    height: 90%;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    background-color: #69665C;
+    font-family: 'Adobe Clean';
+    font-weight: 600;
+}
+
+.floatbox__body {
+    margin-top: 30px;
+}
+
+.body__text {
+    font-size: 16px;
+}
+
+.body__input {
+    width: calc(100% - 15px);
+    height: 40px;
+    font-family: 'Adobe Clean';
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    color: #69665C;
+    background-color: #f9f9f7;
+    padding-left: 15px;
+}
+
+.body__input--big {
+    height: 140px;
+}
+
+.body__description {
+    margin-top: 40px;
+}
+
+textarea:focus, input:focus, select:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+} 
+
+.empty {
+    height: 70%;
     display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty__img {
+    width: 90%;
 }
