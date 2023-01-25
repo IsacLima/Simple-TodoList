@@ -6,4 +6,4 @@
 
 ### TECH UTILIZADAS:
 
-##### <img src="https://icon2.cleanpng.com/20180426/zue/kisspng-web-development-html-responsive-web-design-cascadi-5ae19e6b1412f6.0023511515247355950822.jpg"/>
+##### <img src="https://e7.pngegg.com/pngimages/251/335/png-clipart-website-development-html-cascading-style-sheets-javascript-css3-html-logo-web-design-text.png"/>
