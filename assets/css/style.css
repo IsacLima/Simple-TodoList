@@ -83,8 +83,14 @@ nav {
     padding-left: 15px;
 }
 
+.body__input--big::placeholder{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
 .body__input--big {
-    height: 140px;
+    padding-bottom: 140px;
 }
 
 .body__description {
