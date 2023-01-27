@@ -37,8 +37,21 @@ nav {
 }
 
 .floatbox {
-    display: flex;
+    width: 100%;
+    margin-top: 40px;
+    display: none;
     flex-direction: column;
+    animation: slide 0.5s;
+}
+
+@keyframes slide {
+    from{
+        transform: translateY(-100%);
+    }
+
+    to{
+        transform: translateY(0%);
+    }
 }
 
 .floatbox__header {
@@ -90,7 +103,12 @@ nav {
 }
 
 .body__input--big {
-    padding-bottom: 140px;
+    padding-top: 15px;
+    padding-bottom: 125px;
+}
+
+textarea {
+    resize: none;
 }
 
 .body__description {
@@ -105,7 +123,7 @@ textarea:focus, input:focus, select:focus {
 
 .empty {
     height: 70%;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
