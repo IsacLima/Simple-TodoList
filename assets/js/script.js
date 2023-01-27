@@ -13,5 +13,6 @@ function closeTt(){
     document.getElementsByClassName("empty")[0].style.display = "flex"
     document.getElementsByClassName("floatbox")[0].style.display = "none"
     document.getElementsByClassName("nav")[0].style.display = "flex"
-    
+    document.getElementsByClassName("body__input")[0].value = ""
+    document.getElementsByClassName("body__input")[1].value = ""
 }

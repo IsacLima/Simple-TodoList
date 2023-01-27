@@ -123,11 +123,69 @@ textarea:focus, input:focus, select:focus {
 
 .empty {
     height: 70%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
 
 .empty__img {
     width: 90%;
+}
+
+.task{
+    width: calc(100% - 30px);
+    padding: 15px 15px 0;
+    height: 140px;
+    background-color: #FFF9DE;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.nav__task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.task__options{
+    width: 17.5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.circle {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #69665C;
+}
+
+.task__info, .checkbox{
+    margin-bottom: 20px;
+}
+
+.checkbox{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.check{
+    opacity: 0;
+}
+
+.checkmark{
+    height: 15px;
+    width: 15px;
+    border: #69665C solid 1px;
+    border-radius: 30%;
+}
+
+.check:checked ~ .checkmark{
+    background-color: #69665C;
+}
+
+.check__text{
+    font-size: 12px;
 }
