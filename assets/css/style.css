@@ -189,3 +189,32 @@ textarea:focus, input:focus, select:focus {
 .check__text{
     font-size: 12px;
 }
+
+.task__tooltip {
+    width: 140px;
+    height: 80px;
+    border-radius: 10%;
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.task__tx {
+    margin: 0 0 0 15px;
+    font-size: 15px;
+    color: #B2AFA1;
+}
+
+.edit {
+    position: relative;
+}
+
+.edit::after {
+    content: "";
+    width: 140px;
+    position: absolute;
+    top: 25px;
+    left: -15px;
+    border-bottom: #B2AFA1 solid 1px;
+}
