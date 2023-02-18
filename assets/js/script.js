@@ -114,6 +114,11 @@ function addTask(event){
     document.getElementsByClassName("body__input")[1].value = ""
 
     showTasks()
+
+    const options = document.getElementsByClassName("task__options")
+
+    options[options.length-1].addEventListener("click", function(event){ openOptions(event)})
+
 } 
 
 function checkTasks(){
@@ -141,4 +146,8 @@ function hideTasks(){
             item.style.display = "none"
         }
     }
+}
+
+function openOptions(){
+    /*não to conseguindo posicionar o tooltip das opçoes :(*/
 }
