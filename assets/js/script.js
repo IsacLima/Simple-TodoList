@@ -4,6 +4,7 @@ document.getElementsByClassName("cancel")[0].addEventListener("click", function(
 
 let haveTask = "False"
 
+//abre a janela de criação de tarefa
 function openTt(){
     document.getElementsByClassName("empty")[0].style.display = "none"
     document.getElementsByClassName("floatbox")[0].style.display = "flex"
@@ -12,6 +13,7 @@ function openTt(){
     hideTasks()
 }
 
+//fecha a janela de criação de tarefa só que sem criar um nova tarefa
 function closeTt(){
     checkTasks()
     document.getElementsByClassName("floatbox")[0].style.display = "none"
@@ -22,6 +24,7 @@ function closeTt(){
     showTasks()
 }
 
+//fecha a janela de criação de tarefa criando uma tarefa nova
 function closeTtAdd(){
     checkTasks()
     document.getElementsByClassName("floatbox")[0].style.display = "none"
@@ -30,6 +33,7 @@ function closeTtAdd(){
 
 document.getElementsByClassName("add")[0].addEventListener("click", function(event){ addTask(event)})
 
+//aqui é feita toda a criação da tarefa consumindo as informações inseridas pelo usuario
 function addTask(event){
     haveTask = "True"
     closeTtAdd()
@@ -121,6 +125,7 @@ function addTask(event){
 
 } 
 
+//checa se ja tem alguma tarefa criada
 function checkTasks(){
     if (haveTask){
         document.getElementsByClassName("empty")[0].style.display = "none"
@@ -130,6 +135,7 @@ function checkTasks(){
     }
 }
 
+//mostra as tarefas quando fecha a janela de criação
 function showTasks(){
     if(haveTask){
         tasks = document.getElementsByClassName("task")
@@ -139,6 +145,7 @@ function showTasks(){
     }
 }
 
+//esconde as tarefas quando abre a janela de criação
 function hideTasks(){
     if(haveTask){
         tasks = document.getElementsByClassName("task")
@@ -148,6 +155,8 @@ function hideTasks(){
     }
 }
 
+//abre o menu de opções das tarefas
 function openOptions(){
+    console.log("a")
     /*não to conseguindo posicionar o tooltip das opçoes :(*/
 }
