@@ -132,8 +132,7 @@ textarea:focus, input:focus, select:focus {
 
 .task{
     width: calc(100% - 30px);
-    padding: 15px 15px 0;
-    height: 140px;
+    padding: 15px 15px 20px;
     background-color: #FFF9DE;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -159,7 +158,8 @@ textarea:focus, input:focus, select:focus {
     background-color: #69665C;
 }
 
-.task__info, .checkbox{
+.task__info{
+    width: 100%;
     margin-bottom: 20px;
 }
 
@@ -215,4 +215,8 @@ textarea:focus, input:focus, select:focus {
     top: 25px;
     left: -15px;
     border-bottom: #B2AFA1 solid 1px;
+}
+
+.task__title{
+    font-weight: 700;
 }
