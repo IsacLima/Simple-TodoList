@@ -5,7 +5,6 @@
 
 body {
     width: 100vw;
-    height: 100vh;
     margin: 0;
     font-family: 'Adobe Clean';
     color: #69665C ;
@@ -14,8 +13,7 @@ body {
 
 .container{
     width: calc(100% - 30px);
-    height: 100%;
-    margin: 0 15px;
+    margin: 0 15px 60px;
 }
 
 nav {
@@ -122,7 +120,7 @@ textarea:focus, input:focus, select:focus {
 } 
 
 .empty {
-    height: 70%;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;

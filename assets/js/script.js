@@ -2,23 +2,28 @@ document.getElementsByClassName("nav__img")[0].addEventListener("click", functio
 
 document.getElementsByClassName("cancel")[0].addEventListener("click", function(event){ closeTt()});
 
+let haveTask = "False"
 
 function openTt(){
     document.getElementsByClassName("empty")[0].style.display = "none"
     document.getElementsByClassName("floatbox")[0].style.display = "flex"
     document.getElementsByClassName("nav")[0].style.display = "none"
+    
+    hideTasks()
 }
 
 function closeTt(){
-    document.getElementsByClassName("empty")[0].style.display = "flex"
+    checkTasks()
     document.getElementsByClassName("floatbox")[0].style.display = "none"
     document.getElementsByClassName("nav")[0].style.display = "flex"
     document.getElementsByClassName("body__input")[0].value = ""
     document.getElementsByClassName("body__input")[1].value = ""
+
+    showTasks()
 }
 
 function closeTtAdd(){
-    document.getElementsByClassName("empty")[0].style.display = "none"
+    checkTasks()
     document.getElementsByClassName("floatbox")[0].style.display = "none"
     document.getElementsByClassName("nav")[0].style.display = "flex"
 }
@@ -26,6 +31,7 @@ function closeTtAdd(){
 document.getElementsByClassName("add")[0].addEventListener("click", function(event){ addTask(event)})
 
 function addTask(event){
+    haveTask = "True"
     closeTtAdd()
     document.getElementsByClassName("empty")[0].style.display = "none"
     const task = document.createElement("div")
@@ -34,9 +40,8 @@ function addTask(event){
     navTask.classList.add("nav__task")
     const taskTitle = document.createElement("div")
     taskTitle.classList.add("task__title")
-    
-    const titulo = document.createTextNode(event.path[0].parentElement.parentElement.children[1].children[1].children[1].value)
-    console.log(event.path[0].parentElement.parentElement.children[1].children[1].children[1].value)
+
+    const titulo = document.createTextNode(event.target.parentElement.parentElement.children[1].children[0].children[1].value)
     taskTitle.appendChild(titulo)
     const taskOption = document.createElement("div")
     taskOption.classList.add("task__options")
@@ -50,7 +55,7 @@ function addTask(event){
     taskInfo.classList.add("task__info")
 
 
-    const descricao = document.createTextNode(event.path[0].parentElement.parentElement.children[1].children[1].children[0].innerText)
+    const descricao = document.createTextNode(event.target.parentElement.parentElement.children[1].children[1].children[1].value)
     taskInfo.appendChild(descricao)
     const checkbox = document.createElement("div")
     checkbox.classList.add("checkbox")
@@ -94,4 +99,46 @@ function addTask(event){
     taskTooltip.appendChild(ttEdit)
     taskTooltip.appendChild(ttDel)
     task.style = "flex"
+
+    if(event.target.parentElement.parentElement.children[1].children[0].children[1].value == ""){
+        const titulo = document.createTextNode("Título")
+        taskTitle.appendChild(titulo)
+    }
+
+    if(event.target.parentElement.parentElement.children[1].children[1].children[1].value == ""){
+        const descricao = document.createTextNode("Descrição")
+        taskInfo.appendChild(descricao)
+    }
+
+    document.getElementsByClassName("body__input")[0].value = ""
+    document.getElementsByClassName("body__input")[1].value = ""
+
+    showTasks()
 } 
+
+function checkTasks(){
+    if (haveTask){
+        document.getElementsByClassName("empty")[0].style.display = "none"
+    }
+    else{
+        document.getElementsByClassName("empty")[0].style.display = "flex"
+    }
+}
+
+function showTasks(){
+    if(haveTask){
+        tasks = document.getElementsByClassName("task")
+        for(let item of tasks){
+            item.style.display = ""
+        }
+    }
+}
+
+function hideTasks(){
+    if(haveTask){
+        tasks = document.getElementsByClassName("task")
+        for(let item of tasks){
+            item.style.display = "none"
+        }
+    }
+}
