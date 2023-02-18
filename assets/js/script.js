@@ -157,6 +157,5 @@ function hideTasks(){
 
 //abre o menu de opções das tarefas
 function openOptions(){
-    console.log("a")
     /*não to conseguindo posicionar o tooltip das opçoes :(*/
 }
