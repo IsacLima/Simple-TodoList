@@ -41,7 +41,8 @@ function addTask(event){
     const taskTitle = document.createElement("div")
     taskTitle.classList.add("task__title")
 
-    const titulo = document.createTextNode(event.target.parentElement.parentElement.children[1].children[0].children[1].value)
+    const titulo = document.createTextNode(event.target.parentElement.parentElement.children[1].children[0].children[1].value.toUpperCase())
+    console.log(titulo)
     taskTitle.appendChild(titulo)
     const taskOption = document.createElement("div")
     taskOption.classList.add("task__options")
@@ -101,7 +102,7 @@ function addTask(event){
     task.style = "flex"
 
     if(event.target.parentElement.parentElement.children[1].children[0].children[1].value == ""){
-        const titulo = document.createTextNode("Título")
+        const titulo = document.createTextNode("TÍTULO")
         taskTitle.appendChild(titulo)
     }
 
