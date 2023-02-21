@@ -205,15 +205,6 @@ textarea:focus, input:focus, select:focus {
     color: #B2AFA1;
 }
 
-/*.edit::after {
-    content: "";
-    width: 140px;
-    position: absolute;
-    top: 25px;
-    left: -15px;
-    border-bottom: #B2AFA1 solid 1px;
-}*/
-
 .task__title{
     font-weight: 700;
 }
@@ -234,8 +225,8 @@ textarea:focus, input:focus, select:focus {
 .options .edit, .options .remove{
     height: 50%;
     display: flex;
-    align-items: center;
-    color: #B2AFA1;
+    align-items: center;    
+    color: #cccac0;
 }
 
 .options .edit::before{
@@ -244,5 +235,5 @@ textarea:focus, input:focus, select:focus {
     top: 45px;
     left: 0px;
     width: 100%;
-    border-bottom: solid #B2AFA1 1px;
+    border-bottom: solid #d3d0c5 1px;
 }

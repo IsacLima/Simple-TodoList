@@ -44,7 +44,6 @@ function addTask(event){
     navTask.classList.add("nav__task")
     const taskTitle = document.createElement("div")
     taskTitle.classList.add("task__title")
-
     const titulo = document.createTextNode(event.target.parentElement.parentElement.children[1].children[0].children[1].value.toUpperCase())
     taskTitle.appendChild(titulo)
     const taskOption = document.createElement("div")
@@ -57,8 +56,6 @@ function addTask(event){
     circle3.classList.add("circle")
     const taskInfo = document.createElement("div")
     taskInfo.classList.add("task__info")
-
-
     const descricao = document.createTextNode(event.target.parentElement.parentElement.children[1].children[1].children[1].value)
     taskInfo.appendChild(descricao)
     const checkbox = document.createElement("div")
@@ -121,6 +118,7 @@ function addTask(event){
 
     const options = document.getElementsByClassName("task__options")
 
+    //chama a função de abrir as opções toda vez que cria-se uma nove tarefa
     options[options.length-1].addEventListener("click", function(event){ openOptions(event)})
 
 } 
@@ -157,5 +155,13 @@ function hideTasks(){
 
 //abre o menu de opções das tarefas
 function openOptions(){
-    /*não to conseguindo posicionar o tooltip das opçoes :(*/
+    let options = document.getElementsByClassName("options")[0]
+    if(options.style.display == "flex"){
+        options.style.display = ""
+    }
+    else{
+        options.style.display = "flex"
+        options.style.top = `${event.y + 10}px`
+        options.style.left = `${event.x - 160}px`
+    }
 }
