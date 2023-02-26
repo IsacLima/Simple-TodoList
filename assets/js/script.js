@@ -160,6 +160,7 @@ function hideTasks(){
 //abre o menu de opções das tarefas
 function openOptions(){
     let options = document.getElementsByClassName("options")[0]
+    event.target.parentNode.parentNode.parentNode.appendChild(options)
     if(options.style.display == "flex"){
         options.style.display = ""
     }
@@ -167,5 +168,15 @@ function openOptions(){
         options.style.display = "flex"
         options.style.top = `${event.pageY + 10}px`
         options.style.left = `${event.pageX - 160}px`
+        document.getElementsByClassName("remove")[0].addEventListener("click", function(event){ removeTask()});
     }
 }
+
+//remove a tarefa especifica
+function removeTask(){
+    console.log(event.target.parentNode.parentNode.parentNode)
+    event.target.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode)
+}
+
+//como inserimos o menu de opções para dentro da task, quando removida, ficamos sem o 'menu' para 
+//inserir nas tarefas futuras (proximo passo)
