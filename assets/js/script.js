@@ -151,6 +151,10 @@ function hideTasks(){
             item.style.display = "none"
         }
     }
+
+    if(document.getElementsByClassName("options")[0].style.display == "flex"){
+        document.getElementsByClassName("options")[0].style.display = ""
+    }
 }
 
 //abre o menu de opções das tarefas
@@ -161,7 +165,7 @@ function openOptions(){
     }
     else{
         options.style.display = "flex"
-        options.style.top = `${event.y + 10}px`
-        options.style.left = `${event.x - 160}px`
+        options.style.top = `${event.pageY + 10}px`
+        options.style.left = `${event.pageX - 160}px`
     }
 }
