@@ -9,8 +9,9 @@ function openTt(){
     document.getElementsByClassName("empty")[0].style.display = "none"
     document.getElementsByClassName("floatbox")[0].style.display = "flex"
     document.getElementsByClassName("nav")[0].style.display = "none"
-    
-    hideTasks()
+    if(document.getElementsByClassName("options").length > 0){
+        hideTasks()
+    }
 }
 
 //fecha a janela de criação de tarefa só que sem criar um nova tarefa
@@ -83,12 +84,24 @@ function addTask(event){
     const delTx = document.createTextNode("Remover")
     ttDel.appendChild(delTx)
 
+    const options = document.createElement("div")
+    options.classList.add("options")
+    const edit = document.createElement("div")
+    edit.classList.add("edit")
+    edit.innerHTML = "Editar..."
+    const remove = document.createElement("div")
+    remove.classList.add("remove")
+    remove.innerHTML = "Remover"
+    options.appendChild(edit)
+    options.appendChild(remove)
+
     const container = document.getElementsByClassName("container")
     container[0].appendChild(task)
     task.appendChild(navTask)
     task.appendChild(taskInfo)
     task.appendChild(checkbox)
     task.appendChild(taskTooltip)
+    task.appendChild(options)
     navTask.appendChild(taskTitle)
     navTask.appendChild(taskOption)
     taskOption.appendChild(circle1)
@@ -116,10 +129,10 @@ function addTask(event){
 
     showTasks()
 
-    const options = document.getElementsByClassName("task__options")
+    const option = document.getElementsByClassName("task__options")
 
     //chama a função de abrir as opções toda vez que cria-se uma nove tarefa
-    options[options.length-1].addEventListener("click", function(event){ openOptions(event)})
+    option[option.length-1].addEventListener("click", function(event){ openOptions(options)})
 
 } 
 
@@ -158,9 +171,7 @@ function hideTasks(){
 }
 
 //abre o menu de opções das tarefas
-function openOptions(){
-    let options = document.getElementsByClassName("options")[0]
-    event.target.parentNode.parentNode.parentNode.appendChild(options)
+function openOptions(options){
     if(options.style.display == "flex"){
         options.style.display = ""
     }
@@ -174,9 +185,10 @@ function openOptions(){
 
 //remove a tarefa especifica
 function removeTask(){
-    console.log(event.target.parentNode.parentNode.parentNode)
+    console.log(event.target)
     event.target.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode)
 }
+
 
 //como inserimos o menu de opções para dentro da task, quando removida, ficamos sem o 'menu' para 
 //inserir nas tarefas futuras (proximo passo)
