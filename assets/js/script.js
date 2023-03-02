@@ -129,11 +129,12 @@ function addTask(event){
 
     showTasks()
 
+    //chama a função de abrir as opções toda vez que cria-se uma nova tarefa
     const option = document.getElementsByClassName("task__options")
+    option[option.length-1].addEventListener("click", function(){ openOptions(options)})
 
-    //chama a função de abrir as opções toda vez que cria-se uma nove tarefa
-    option[option.length-1].addEventListener("click", function(event){ openOptions(options)})
-
+    const removeOption = document.getElementsByClassName("remove") 
+    removeOption[removeOption.length-1].addEventListener("click", function(event){ removeTask()});
 } 
 
 //checa se ja tem alguma tarefa criada
@@ -179,16 +180,16 @@ function openOptions(options){
         options.style.display = "flex"
         options.style.top = `${event.pageY + 10}px`
         options.style.left = `${event.pageX - 160}px`
-        document.getElementsByClassName("remove")[0].addEventListener("click", function(event){ removeTask()});
     }
 }
 
+
+
 //remove a tarefa especifica
 function removeTask(){
-    console.log(event.target)
     event.target.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode)
+    if(document.getElementsByClassName("remove").length < 1){
+        haveTask = false
+        checkTasks()
+    }
 }
-
-
-//como inserimos o menu de opções para dentro da task, quando removida, ficamos sem o 'menu' para 
-//inserir nas tarefas futuras (proximo passo)
