@@ -38,6 +38,7 @@ document.getElementsByClassName("add")[0].addEventListener("click", function(eve
 function addTask(event){
     haveTask = "True"
     closeTtAdd()
+
     document.getElementsByClassName("empty")[0].style.display = "none"
     const task = document.createElement("div")
     task.classList.add("task")
@@ -114,12 +115,15 @@ function addTask(event){
     taskTooltip.appendChild(ttDel)
     task.style = "flex"
 
-    if(event.target.parentElement.parentElement.children[1].children[0].children[1].value == ""){
+    let tituloTask = event.target.parentElement.parentElement.children[1].children[0].children[1].value
+    let descricaoTask = event.target.parentElement.parentElement.children[1].children[1].children[1].value
+
+    if(tituloTask == ""){
         const titulo = document.createTextNode("TÍTULO")
         taskTitle.appendChild(titulo)
     }
 
-    if(event.target.parentElement.parentElement.children[1].children[1].children[1].value == ""){
+    if(descricaoTask == ""){
         const descricao = document.createTextNode("Descrição")
         taskInfo.appendChild(descricao)
     }
@@ -133,8 +137,14 @@ function addTask(event){
     const option = document.getElementsByClassName("task__options")
     option[option.length-1].addEventListener("click", function(){ openOptions(options)})
 
+    //cria um evento de remoção toda vez que se cria uma tarefa
     const removeOption = document.getElementsByClassName("remove") 
     removeOption[removeOption.length-1].addEventListener("click", function(event){ removeTask()});
+
+    //cria um evento de edição toda vez que se cria uma tarefa
+    const editOption = document.getElementsByClassName("edit") 
+    editOption[editOption.length-1].addEventListener("click", function(event){ editTask(tituloTask, descricaoTask)});
+
 } 
 
 //checa se ja tem alguma tarefa criada
@@ -183,8 +193,6 @@ function openOptions(options){
     }
 }
 
-
-
 //remove a tarefa especifica
 function removeTask(){
     event.target.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode)
@@ -193,3 +201,13 @@ function removeTask(){
         checkTasks()
     }
 }
+
+function editTask(titulo, descricao){
+    console.log(event.target.parentNode.parentNode.children[0].children[0])
+    openTt()
+    document.getElementsByClassName("body__input")[0].value = `${titulo}`
+    document.getElementsByClassName("body__input")[1].value = `${descricao}`
+    document.getElementsByClassName("add")[0].innerHTML = "Edit"
+}
+
+//proximo passo: o tooltip para editar esta ok agora falta capturar os dados editados e passar para a mesma tarefa
