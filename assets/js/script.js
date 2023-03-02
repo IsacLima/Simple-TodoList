@@ -2,12 +2,14 @@ document.getElementsByClassName("nav__img")[0].addEventListener("click", functio
 
 document.getElementsByClassName("cancel")[0].addEventListener("click", function(event){ closeTt()});
 
+//objeto com as informações da tarefa que vai ser modificada
 var taskObject = {
     actual: "none",
     title: "Título",
     description: "Descrição"
 }
 
+//variavel para decisão de exibir ou esconder as tarefas em tela
 let haveTask = "False"
 
 //abre a janela de criação de tarefa
@@ -40,9 +42,11 @@ function closeTtAdd(){
 }
 
 document.getElementsByClassName("add")[0].addEventListener("click", function(){ 
+    //se for somente adicionar uma tarefa e nao editar chama-se a função addTask()
     if(document.getElementsByClassName("add")[0].innerHTML == "Add"){
         addTask(event)
     }
+    //caso seja uma edição, pega-se os valores alterados e substitui na tarefa ja existente 
     else{
         haveTask = "True"
         closeTtAdd()
@@ -234,6 +238,8 @@ function removeTask(){
     }
 }
 
+//pega a mesma tela de criação de tarefa a altera alguns valores para ficar no formato de edicao e as alteraçoes 
+//sao criadas dentro da funcao do evento de click do botao 'add'
 function editTask(titulo, descricao){ 
     openTt()
     document.getElementsByClassName("body__input")[0].value = `${titulo}`
