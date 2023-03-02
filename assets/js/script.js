@@ -2,10 +2,17 @@ document.getElementsByClassName("nav__img")[0].addEventListener("click", functio
 
 document.getElementsByClassName("cancel")[0].addEventListener("click", function(event){ closeTt()});
 
+var taskObject = {
+    actual: "none",
+    title: "Título",
+    description: "Descrição"
+}
+
 let haveTask = "False"
 
 //abre a janela de criação de tarefa
 function openTt(){
+    document.getElementsByClassName("add")[0].innerHTML = "Add"
     document.getElementsByClassName("empty")[0].style.display = "none"
     document.getElementsByClassName("floatbox")[0].style.display = "flex"
     document.getElementsByClassName("nav")[0].style.display = "none"
@@ -32,12 +39,36 @@ function closeTtAdd(){
     document.getElementsByClassName("nav")[0].style.display = "flex"
 }
 
-document.getElementsByClassName("add")[0].addEventListener("click", function(event){ addTask(event)})
+document.getElementsByClassName("add")[0].addEventListener("click", function(){ 
+    if(document.getElementsByClassName("add")[0].innerHTML == "Add"){
+        addTask(event)
+    }
+    else{
+        haveTask = "True"
+        closeTtAdd()
+        showTasks()
+        taskObject.title = event.target.parentElement.parentElement.children[1].children[0].children[1].value.toUpperCase()
+        taskObject.description = event.target.parentElement.parentElement.children[1].children[1].children[1].value
+        document.getElementsByClassName("body__input")[0].value = ""
+        document.getElementsByClassName("body__input")[1].value = ""
+        taskObject.actual.children[0].children[0].innerHTML = taskObject.title
+        taskObject.actual.children[1].innerHTML = taskObject.description
+        const options = document.getElementsByClassName("options") 
+        for(let item of options){
+            if(item.style.display == "flex"){
+                item.style.display = ""
+            }
+        }
+    }
+})
 
 //aqui é feita toda a criação da tarefa consumindo as informações inseridas pelo usuario
-function addTask(event){
+function addTask(){
     haveTask = "True"
     closeTtAdd()
+
+    taskObject.title = event.target.parentElement.parentElement.children[1].children[0].children[1].value.toUpperCase()
+    taskObject.description = event.target.parentElement.parentElement.children[1].children[1].children[1].value
 
     document.getElementsByClassName("empty")[0].style.display = "none"
     const task = document.createElement("div")
@@ -46,7 +77,7 @@ function addTask(event){
     navTask.classList.add("nav__task")
     const taskTitle = document.createElement("div")
     taskTitle.classList.add("task__title")
-    const titulo = document.createTextNode(event.target.parentElement.parentElement.children[1].children[0].children[1].value.toUpperCase())
+    const titulo = document.createTextNode(taskObject.title)
     taskTitle.appendChild(titulo)
     const taskOption = document.createElement("div")
     taskOption.classList.add("task__options")
@@ -58,7 +89,7 @@ function addTask(event){
     circle3.classList.add("circle")
     const taskInfo = document.createElement("div")
     taskInfo.classList.add("task__info")
-    const descricao = document.createTextNode(event.target.parentElement.parentElement.children[1].children[1].children[1].value)
+    const descricao = document.createTextNode(taskObject.description)
     taskInfo.appendChild(descricao)
     const checkbox = document.createElement("div")
     checkbox.classList.add("checkbox")
@@ -115,15 +146,12 @@ function addTask(event){
     taskTooltip.appendChild(ttDel)
     task.style = "flex"
 
-    let tituloTask = event.target.parentElement.parentElement.children[1].children[0].children[1].value
-    let descricaoTask = event.target.parentElement.parentElement.children[1].children[1].children[1].value
-
-    if(tituloTask == ""){
+    if(taskObject.title == ""){
         const titulo = document.createTextNode("TÍTULO")
         taskTitle.appendChild(titulo)
     }
 
-    if(descricaoTask == ""){
+    if(taskObject.description == ""){
         const descricao = document.createTextNode("Descrição")
         taskInfo.appendChild(descricao)
     }
@@ -143,7 +171,11 @@ function addTask(event){
 
     //cria um evento de edição toda vez que se cria uma tarefa
     const editOption = document.getElementsByClassName("edit") 
-    editOption[editOption.length-1].addEventListener("click", function(event){ editTask(tituloTask, descricaoTask)});
+    editOption[editOption.length-1].addEventListener("click", function(event){ 
+        taskObject.title = event.target.parentNode.parentNode.children[0].children[0].innerHTML
+        taskObject.description = event.target.parentNode.parentNode.children[1].innerHTML
+        editTask(taskObject.title, taskObject.description)
+    });
 
 } 
 
@@ -202,12 +234,12 @@ function removeTask(){
     }
 }
 
-function editTask(titulo, descricao){
-    console.log(event.target.parentNode.parentNode.children[0].children[0])
+function editTask(titulo, descricao){ 
     openTt()
     document.getElementsByClassName("body__input")[0].value = `${titulo}`
     document.getElementsByClassName("body__input")[1].value = `${descricao}`
     document.getElementsByClassName("add")[0].innerHTML = "Edit"
+    taskObject.actual = event.target.parentNode.parentNode  
 }
 
 //proximo passo: o tooltip para editar esta ok agora falta capturar os dados editados e passar para a mesma tarefa
