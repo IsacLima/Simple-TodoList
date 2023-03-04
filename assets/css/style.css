@@ -183,7 +183,9 @@ textarea:focus, input:focus, select:focus {
 
 .check:checked ~ .checkmark{
     background-color: #69665C;
+    
 }
+
 
 .check__text{
     font-size: 12px;
@@ -236,4 +238,12 @@ textarea:focus, input:focus, select:focus {
     left: 0px;
     width: 100%;
     border-bottom: solid #d3d0c5 1px;
+}
+
+/*versão PC*/
+
+@media (min-width: 480px) {
+    
+
+
 }

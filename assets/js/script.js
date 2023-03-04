@@ -115,6 +115,20 @@ function createTask(){
     const input = document.createElement("input")
     input.type = "checkbox"
     input.classList.add("check")
+
+    //adiciona evento de clique para riscar a tarefa quando concluida
+    input.addEventListener("click", function(){
+        if(event.target.checked){
+            taskTitle.style.textDecoration = "line-through"
+            taskInfo.style.textDecoration = "line-through"
+        }
+
+        else{
+            taskTitle.style.textDecoration = ""
+            taskInfo.style.textDecoration = ""
+        }
+    })
+
     const label = document.createElement("label")
     label.htmlFor = "check"
     label.classList.add("checkmark")
