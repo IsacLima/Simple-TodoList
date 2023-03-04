@@ -10,7 +10,7 @@ var taskObject = {
 }
 
 //variavel para decisão de exibir ou esconder as tarefas em tela
-let haveTask = "False"
+let haveTask = false
 
 //abre a janela de criação de tarefa
 function openTt(){
@@ -18,14 +18,25 @@ function openTt(){
     document.getElementsByClassName("empty")[0].style.display = "none"
     document.getElementsByClassName("floatbox")[0].style.display = "flex"
     document.getElementsByClassName("nav")[0].style.display = "none"
+    backgroundDark()
     if(document.getElementsByClassName("options").length > 0){
         hideTasks()
+    }
+}
+
+function backgroundDark(){
+    if(document.getElementsByClassName("container")[0].classList == "container background--gray"){
+        document.getElementsByClassName("container")[0].classList.remove("background--gray")
+    }
+    else{
+        document.getElementsByClassName("container")[0].classList.add("background--gray")
     }
 }
 
 //fecha a janela de criação de tarefa só que sem criar um nova tarefa
 function closeTt(){
     checkTasks()
+    backgroundDark()
     document.getElementsByClassName("floatbox")[0].style.display = "none"
     document.getElementsByClassName("nav")[0].style.display = "flex"
     document.getElementsByClassName("body__input")[0].value = ""
@@ -36,6 +47,7 @@ function closeTt(){
 
 //fecha a janela de criação de tarefa criando uma tarefa nova
 function closeTtAdd(){
+    backgroundDark()
     checkTasks()
     document.getElementsByClassName("floatbox")[0].style.display = "none"
     document.getElementsByClassName("nav")[0].style.display = "flex"
@@ -68,7 +80,7 @@ document.getElementsByClassName("add")[0].addEventListener("click", function(){
 
 //aqui é feita toda a criação da tarefa consumindo as informações inseridas pelo usuario
 function addTask(){
-    haveTask = "True"
+    haveTask = true
     closeTtAdd()
     taskObject.title = event.target.parentElement.parentElement.children[1].children[0].children[1].value.toUpperCase()
     taskObject.description = event.target.parentElement.parentElement.children[1].children[1].children[1].value
@@ -174,6 +186,7 @@ function createTask(){
     taskTooltip.appendChild(ttEdit)
     taskTooltip.appendChild(ttDel)
     task.style = "flex"
+    document.getElementsByClassName("task")[0].style.marginTop = "60px"
 
     if(taskObject.title == ""){
         const titulo = document.createTextNode("TÍTULO")
@@ -263,6 +276,6 @@ function editTask(titulo, descricao){
     openTt()
     document.getElementsByClassName("body__input")[0].value = `${titulo}`
     document.getElementsByClassName("body__input")[1].value = `${descricao}`
-    document.getElementsByClassName("add")[0].innerHTML = "Edit"
+    document.getElementsByClassName("add")[0].innerHTML = "Editar"
     taskObject.actual = event.target.parentNode.parentNode  
 }
