@@ -243,7 +243,7 @@ textarea:focus, input:focus, select:focus {
 }
 
 /*versão PC*/
-/*usei somente uma limitação de queries pois nao era necessárias mais alterações
+/*usei somente uma limitação de queries pois nao era necessárias mais alterações*/
 
 @media (min-width: 480px) {
 
