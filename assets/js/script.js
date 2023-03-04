@@ -70,9 +70,20 @@ document.getElementsByClassName("add")[0].addEventListener("click", function(){
 function addTask(){
     haveTask = "True"
     closeTtAdd()
-
     taskObject.title = event.target.parentElement.parentElement.children[1].children[0].children[1].value.toUpperCase()
     taskObject.description = event.target.parentElement.parentElement.children[1].children[1].children[1].value
+ 
+    createTask()
+
+    document.getElementsByClassName("body__input")[0].value = ""
+    document.getElementsByClassName("body__input")[1].value = ""
+
+    showTasks()
+
+} 
+
+//cria o elemento HTML da tarefa e adiciona os eventos de click nas opções
+function createTask(){
 
     document.getElementsByClassName("empty")[0].style.display = "none"
     const task = document.createElement("div")
@@ -160,11 +171,6 @@ function addTask(){
         taskInfo.appendChild(descricao)
     }
 
-    document.getElementsByClassName("body__input")[0].value = ""
-    document.getElementsByClassName("body__input")[1].value = ""
-
-    showTasks()
-
     //chama a função de abrir as opções toda vez que cria-se uma nova tarefa
     const option = document.getElementsByClassName("task__options")
     option[option.length-1].addEventListener("click", function(){ openOptions(options)})
@@ -180,8 +186,7 @@ function addTask(){
         taskObject.description = event.target.parentNode.parentNode.children[1].innerHTML
         editTask(taskObject.title, taskObject.description)
     });
-
-} 
+}
 
 //checa se ja tem alguma tarefa criada
 function checkTasks(){
@@ -217,7 +222,7 @@ function hideTasks(){
     }
 }
 
-//abre o menu de opções das tarefas
+//abre o menu de opções das tarefas, caso já aberto, fecha
 function openOptions(options){
     if(options.style.display == "flex"){
         options.style.display = ""
@@ -247,5 +252,3 @@ function editTask(titulo, descricao){
     document.getElementsByClassName("add")[0].innerHTML = "Edit"
     taskObject.actual = event.target.parentNode.parentNode  
 }
-
-//proximo passo: o tooltip para editar esta ok agora falta capturar os dados editados e passar para a mesma tarefa
