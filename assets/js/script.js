@@ -261,17 +261,6 @@ function openOptions(options){
     options.style.display = "flex"
     options.style.top = `${event.pageY + 2}px`
     options.style.left = `${event.pageX - 160}px`
-    
-
-    /*
-    if(options.style.display == "flex"){
-        options.style.display = ""
-    }
-    else{
-        options.style.display = "flex"
-        options.style.top = `${event.pageY + 10}px`
-        options.style.left = `${event.pageX - 160}px`
-    }*/
 }
 
 //remove a tarefa especifica
