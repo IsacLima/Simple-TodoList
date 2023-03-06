@@ -148,8 +148,10 @@ textarea:focus, input:focus, select:focus {
 }
 
 .task__options{
+    height: 10px;
     width: 17.5px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -210,6 +212,10 @@ textarea:focus, input:focus, select:focus {
 
 .task__title{
     font-weight: 700;
+}
+
+.options:hover{
+    display: flex;
 }
 
 .options{

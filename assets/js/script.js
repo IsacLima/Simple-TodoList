@@ -200,7 +200,9 @@ function createTask(){
 
     //chama a função de abrir as opções toda vez que cria-se uma nova tarefa
     const option = document.getElementsByClassName("task__options")
-    option[option.length-1].addEventListener("click", function(){ openOptions(options)})
+    option[option.length-1].addEventListener("mouseover", function(){ openOptions(options)})
+
+    option[option.length-1].addEventListener("mouseout", function(){ closeOptions(options)})
 
     //cria um evento de remoção toda vez que se cria uma tarefa
     const removeOption = document.getElementsByClassName("remove") 
@@ -249,8 +251,19 @@ function hideTasks(){
     }
 }
 
-//abre o menu de opções das tarefas, caso já aberto, fecha
+//fecha o menu de opções das tarefas
+function closeOptions(options){
+    options.style.display = ""
+}
+
+//abre o menu de opções das tarefas
 function openOptions(options){
+    options.style.display = "flex"
+    options.style.top = `${event.pageY + 2}px`
+    options.style.left = `${event.pageX - 160}px`
+    
+
+    /*
     if(options.style.display == "flex"){
         options.style.display = ""
     }
@@ -258,7 +271,7 @@ function openOptions(options){
         options.style.display = "flex"
         options.style.top = `${event.pageY + 10}px`
         options.style.left = `${event.pageX - 160}px`
-    }
+    }*/
 }
 
 //remove a tarefa especifica
