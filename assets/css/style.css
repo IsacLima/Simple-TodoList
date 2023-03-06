@@ -245,7 +245,7 @@ textarea:focus, input:focus, select:focus {
 /*versão PC*/
 /*usei somente uma limitação de queries pois nao era necessárias mais alterações*/
 
-@media (min-width: 721px) {
+@media (min-width: 1024px) {
 
     .nav__img:hover,
     .cancel,
