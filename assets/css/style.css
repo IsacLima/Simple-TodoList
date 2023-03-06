@@ -175,6 +175,9 @@ textarea:focus, input:focus, select:focus {
 
 .check{
     opacity: 0;
+    position: absolute;
+    width: 17px;
+    height: 30px;
 }
 
 .checkmark{
@@ -295,12 +298,6 @@ textarea:focus, input:focus, select:focus {
         width: 40%;
         padding: 25px 25px 20px;
         z-index: 1000;
-    }
-
-    .check{
-        position: absolute;
-        width: 17px;
-        height: 30px;
     }
 
     .checkmark{
