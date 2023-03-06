@@ -181,6 +181,7 @@ textarea:focus, input:focus, select:focus {
 }
 
 .checkmark{
+    margin-left: 15px;
     height: 15px;
     width: 15px;
     border: #69665C solid 1px;
@@ -298,10 +299,6 @@ textarea:focus, input:focus, select:focus {
         width: 40%;
         padding: 25px 25px 20px;
         z-index: 1000;
-    }
-
-    .checkmark{
-        margin-left: 15px;
     }
 
 }
