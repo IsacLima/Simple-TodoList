@@ -4,7 +4,7 @@
 
 ### **TECH UTILIZADAS:**
 
-##### - [x] HTML 
+- [x] HTML 
 ##### - [x] CSS 
 ##### - [x] JS
 
