@@ -9,4 +9,6 @@
 - [x] CSS 
 - [x] JS
 
-#### **inspiração de design:** *https://www.behance.net/gallery/107935847/Todo-List-Desktop-Mobile-app-UI-Design*
+## **inspiração de design:** 
+
+*https://www.behance.net/gallery/107935847/Todo-List-Desktop-Mobile-app-UI-Design*
