@@ -1,10 +1,10 @@
-# <img width="40px" height="40px" src="./assets/img/bloco-de-anotacoes.png"/> **LISTA DE TAREFAS** 
+# <img width="30px" height="30px" src="./assets/img/bloco-de-anotacoes.png"/> **LISTA DE TAREFAS** 
 
-#### *O projeto trabalhado é uma versão de ToDoList onde as tarefas podem ser adicionadas, editadas e removidas.*
+#### *O projeto trabalhado é uma versão de ToDoList onde as 
+#### tarefas podem ser adicionadas, editadas e removidas.*
 
-```
 ### **TECH UTILIZADAS:**
-```
+
 
 - [x] HTML 
 - [x] CSS 
