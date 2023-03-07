@@ -4,8 +4,8 @@
 
 ### **TECH UTILIZADAS:**
 
-##### <input type="checkbox" id="" disabled="" checked=""> HTML 
-##### <input type="checkbox" id="" disabled="" checked=""> CSS 
-##### <input type="checkbox" id="" disabled="" checked=""> JS
+##### - [x] HTML 
+##### - [x] CSS 
+##### - [x] JS
 
 #### **inspiração de design:** *https://www.behance.net/gallery/107935847/Todo-List-Desktop-Mobile-app-UI-Design*
