@@ -2,7 +2,9 @@
 
 #### *O projeto trabalhado é uma versão de ToDoList onde as tarefas podem ser adicionadas, editadas e removidas.*
 
+```
 ### **TECH UTILIZADAS:**
+```
 
 - [x] HTML 
 - [x] CSS 
